@@ -22,3 +22,9 @@ I mostly chose columns for data that already existed in the dataset, and include
 The model diagrams can be seen below:
 ## Conceptual model
 ![image](conceptual.png)
+
+## Logical model
+![image](logical.png)
+
+## Physical model
+![image](physical.png)
