@@ -1,7 +1,7 @@
 
 # Yellow taxi company analytics project
 ## Qualyfi accelerator final project
-The goal of this project is to ingest a very large dataset in the form of many CSVs which represent trip data for a taxi company, clean it and transform it into a star schema to be read in Power BI and made into a dashboard, using a pipeline in Azure Data Factory that calls notebooks from inside Azure Databricks.
+The goal of this project is to ingest a very large dataset in the form of many `.CSV` files which represent trip data for a taxi company, clean it and transform it into a star schema to be read in Power BI and made into a dashboard, using a pipeline in Azure Data Factory that calls notebooks from inside Azure Databricks.
 
 # 1. Data modelling
 
@@ -40,3 +40,10 @@ I created visualisations that will allow users to quickly understand and assess 
 
 ## Times of day
 ![image](times_powerbi.png)
+
+# 3. Infrastructure as code
+I used Terraform to create the containers I would be working in, namely `landing-cp`, `bronze-cp`, `silver-cp`, `gold-cp`. These represent the progression of the data manipulation. Landing is simply a direct copy of the input data, 132 large `.CSV` files. Bronze, silver and gold are further and further processed versions of that data, to be eventually fed into Power BI.
+
+# 4. Data engineering
+
+
