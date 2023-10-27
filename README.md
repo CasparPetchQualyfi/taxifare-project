@@ -28,3 +28,15 @@ The model diagrams can be seen below:
 
 ## Physical model
 ![image](physical.png)
+
+# 2. Power BI wireframe
+I created visualisations that will allow users to quickly understand and assess the data in order to answer the stated questions. They are filled with dummy data at this stage. The dashboard is split into three pages as shown below:
+
+## Vendor comparison
+![image](vendor_powerbi.png)
+
+## Map
+![image](map_powerbi.png)
+
+## Times of day
+![image](times_powerbi.png)
