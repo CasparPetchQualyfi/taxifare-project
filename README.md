@@ -45,5 +45,6 @@ I created visualisations that will allow users to quickly understand and assess 
 I used Terraform to create the containers I would be working in, namely `landing-cp`, `bronze-cp`, `silver-cp`, `gold-cp`. These represent the progression of the data manipulation. Landing is simply a direct copy of the input data, 132 large `.CSV` files. Bronze, silver and gold are further and further processed versions of that data, to be eventually fed into Power BI.
 
 # 4. Data engineering
+In Azure Databricks, I created new column data and partitioned the data in bronze, applied a schema and some filters in silver, and reformatted the data into a star schema with primary and foreign keys for joining in gold. I created a pipeline which would clear all four containers, copy the source data into landing, and finally run the data processing steps to end up with the final dataset in gold.
 
-
+![image](pipe.png)
