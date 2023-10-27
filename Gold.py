@@ -26,8 +26,7 @@ schema = StructType([
 ]) 
 
 
-spark.conf.set(
-"fs.azure.account.key.datacohortworkspacelabs.blob.core.windows.net", "NUwhjFcHG95EU1Rnu7+Woq3JQP28bXy5kDQhA9yFV68XBz1umr7uqeQgMhrwxHfTwNWxAx/n1K6j+AStGTUMkQ==")
+spark.conf.set("fs.azure.account.key.datacohortworkspacelabs.dfs.core.windows.net", "NUwhjFcHG95EU1Rnu7+Woq3JQP28bXy5kDQhA9yFV68XBz1umr7uqeQgMhrwxHfTwNWxAx/n1K6j+AStGTUMkQ==")
 
 # Applying custom schema to data frame 
 #df = spark.read.csv("wasbs://bronze-cp@datacohortworkspacelabs.blob.core.windows.net/yellow_tripdata", header=True, schema=schema)
@@ -41,6 +40,7 @@ df.display()
 
 # COMMAND ----------
 
+from pyspark.sql.functions import round, hash
 df = df.withColumn("Start_Lon_Round", round(df["Start_Lon"], 4))
 df = df.withColumn("Start_Lat_Round", round(df["Start_Lat"], 4))
 df = df.withColumn("End_Lon_Round", round(df["End_Lon"], 4))
