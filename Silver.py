@@ -9,27 +9,10 @@ from pyspark.sql.types import StructType, StructField, StringType, IntegerType, 
 # Create a spark session using getOrCreate() function 
 spark_session = SparkSession.builder.getOrCreate() 
 
-# Define the structure for the data frame 
-schema = StructType([ 
-	StructField('Pickup_timestamp', 
-				TimestampType(), True), 
-	StructField('Dropoff_timestamp', 
-				TimestampType(), True), 
-	StructField('Passenger_count', 
-				IntegerType(), True), 
-	StructField('Trip_distance_km',
-				FloatType(), True), 
-	StructField('Waiting_time_minutes', 
-				FloatType(), True),
-    StructField('Customer_review_score', 
-				IntegerType(), True) 
-]) 
-
 
 spark.conf.set("fs.azure.account.key.datacohortworkspacelabs.dfs.core.windows.net", "NUwhjFcHG95EU1Rnu7+Woq3JQP28bXy5kDQhA9yFV68XBz1umr7uqeQgMhrwxHfTwNWxAx/n1K6j+AStGTUMkQ==")
 
 # Applying custom schema to data frame 
-#df = spark.read.csv("wasbs://bronze-cp@datacohortworkspacelabs.blob.core.windows.net/yellow_tripdata", header=True, schema=schema)
 df = spark_session.read.format( 
 	"delta").option( 
 	"header", True).load("abfss://bronze-cp@datacohortworkspacelabs.dfs.core.windows.net/yellow_tripdata") 
